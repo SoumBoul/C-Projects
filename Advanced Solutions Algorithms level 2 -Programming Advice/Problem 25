@@ -8,28 +8,28 @@ namespace lab
     {
         static void Main(string[] args)
         {
-            printResult(isValidNumberInRange(readAge(), 18, 45));
+            printResult(readUntilAgeBetween(18,45));
         }
         static byte readAge()
         {
-            Console.Write("Please Enter Age: ");
+            Console.Write("Please Enter Age Between 18 and 45: ");
             byte age = byte.Parse(Console.ReadLine());
-
-            while (!isValidNumberInRange(age, 18, 25))
-            {
-                Console.Write("Wrong Age, Please Enter Age Between 18 and 45: ");
-                age = byte.Parse(Console.ReadLine());
-            }
 
             return age;
         }
-        static bool isValidNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
-        static void printResult(bool isValidAge)
+        static bool validateNumberInRange(int number, int from, int to) => number >= from && number <= to ? true : false;
+        static byte readUntilAgeBetween(int from, int to)
         {
-            if (isValidAge) Console.WriteLine("Valid Age");
-            else Console.WriteLine("Invalid Age");
+            byte age = 0;
+            do
+            {
+                age = readAge();
+            } while (!validateNumberInRange(age, from, to));
+
+            return age;
         }
-
-
+       
+        static void printResult(byte age)=> Console.WriteLine("Your Age is : {0}",age);
+        
     }
 }
