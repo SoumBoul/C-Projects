@@ -1,0 +1,15 @@
+static void Main(string[] args)
+        {
+            Console.Write("Enter Total Bill: ");
+            double totalBill = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter Cash Paid: ");
+            double cashPaid = double.Parse(Console.ReadLine());
+
+            Console.WriteLine(remainderBack(totalBill, cashPaid));
+        }
+
+static double remainderBack(double totalBill, double cashPaid)
+        {
+            return cashPaid - totalBill;
+        }
